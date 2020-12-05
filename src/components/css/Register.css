@@ -1,0 +1,335 @@
+@import url("https://fonts.googleapis.com/css?family=Quicksand:400,500,700&subset=latin-ext");
+div.register-container .profile,
+.profile {
+    padding: 150px;
+    height: auto;
+    width: 100% !important;
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(-20deg, #ff2846 0%, #6944ff 75%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.register-container .profile .profile-card {
+    height: auto;
+    width: 70%;
+    background-color: #ffffff;
+    box-shadow: 0px 8px 60px -10px rgba(13, 28, 39, 0.6);
+    border-radius: 12px;
+}
+
+div.register-container .profile-card .profile-card-image {
+    width: 200px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateY(-40%);
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    z-index: 4;
+    box-shadow: 0px 5px 50px 0px rgb(1, 5, 15);
+}
+
+div.register-container .profile-card .profile-card-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+div.register-container .profile-content {
+    margin-top: -50px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+div.register-container .profile-card .profile-card-name {
+    font-weight: 700;
+    font-size: 1.9rem;
+    color: #6944FF;
+    margin-bottom: 5px;
+}
+
+div.register-container .profile-card-text {
+    font-size: 1.5rem;
+    font-weight: 550;
+    margin-bottom: 10px;
+}
+
+div.register-container .profile-badges,
+.profile-badges {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    font-family: 'Quicksand', sans-serif;
+}
+
+div.register-container .profile-badge {
+    padding: 15px;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.3rem;
+    border-radius: 15px;
+    background: linear-gradient(45deg, #1da1f2, #0e71c8);
+    box-shadow: 0px 4px 30px rgba(19, 127, 212, 0.4);
+}
+
+div.register-container .profile .experience-badges {
+    padding: 3% 10%;
+}
+
+div.register-container .profile .experience-badge,
+.experience-badge-input {
+    padding: 15px;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 400;
+    border-radius: 15px;
+    background: linear-gradient(45deg, #06d6a0, #48bfe3);
+    box-shadow: 0px 4px 30px rgba(19, 127, 212, 0.4);
+    margin: 20px 0;
+}
+
+div.register-container .profile .company-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-bottom: 1px solid #069c74;
+    padding-bottom: 3px;
+    margin-bottom: 15px;
+}
+
+div.register-container .profile .company-name span {
+    font-size: 16px;
+    float: right;
+}
+
+div.register-container .profile .btn-resume {
+    margin: 3% 20%;
+    text-align: center;
+    padding: 15px;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.3rem;
+    border-radius: 15px;
+    background: linear-gradient(45deg, #1da1f2, #0e71c8);
+    box-shadow: 0px 4px 30px rgba(19, 127, 212, 0.4);
+    cursor: pointer;
+    background: linear-gradient(45deg, #d5135a, #f05924);
+    box-shadow: 0px 4px 30px rgba(223, 45, 70, 0.35);
+}
+
+div.image-input {
+    position: relative;
+}
+
+div.image-input input {
+    position: absolute;
+    z-index: 1000;
+    top: 10px;
+    left: 42%;
+}
+
+.name::placeholder {
+    /* Most modern browsers support this now. */
+    opacity: 0.8;
+    color: rgba(17, 17, 17, 0.538) !important;
+    font-weight: 600;
+}
+
+input[type="file"] {
+    opacity: 0.7;
+    color: transparent;
+}
+
+input[type="text"] {
+    position: relative;
+    color: #111 !important;
+    z-index: 10001 !important;
+    text-align: center;
+}
+
+input[type="text"].ctc-input {
+    position: relative;
+    border-radius: 10px;
+    width: 70px;
+    /* opacity: 0.6; */
+    color: #fff !important;
+    background-color: transparent !important;
+    border-top: 2px solid dodgerblue;
+    border-right: 2px solid rgba(30, 143, 255, 0.349);
+    border-left: 2px solid rgba(30, 143, 255, 0.356);
+    border-bottom: 2px solid dodgerblue;
+    z-index: 10001 !important;
+    font-weight: 500;
+    text-align: center;
+}
+
+::placeholder {
+    /* Most modern browsers support this now. */
+    opacity: 0.8;
+    color: #fff !important;
+    font-weight: 600;
+}
+
+input[type="text"].company {
+    position: relative;
+    border-radius: 10px;
+    width: 200px;
+    font-size: 1.4rem;
+    color: #111 !important;
+    background-color: #f1f1f1 !important;
+    border: 2px solid #111;
+    text-align: center;
+    background-color: transparent !important;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #f1f1f1;
+    border-left: 2px solid #f1f1f1;
+    border-bottom: 2px solid #fff;
+    z-index: 10001 !important;
+    font-weight: 500;
+}
+
+input[type="number"].experience-input {
+    position: relative;
+    border-radius: 10px;
+    width: 50px;
+    color: #fff !important;
+    background-color: transparent !important;
+    border-top: 2px solid dodgerblue;
+    border-right: 2px solid rgba(30, 143, 255, 0.349);
+    border-left: 2px solid rgba(30, 143, 255, 0.356);
+    border-bottom: 2px solid dodgerblue;
+    z-index: 10001 !important;
+    font-weight: 500;
+}
+
+.register-container div.btn-resume.input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.register-container div.btn-resume input {
+    display: block;
+    width: 100px;
+}
+
+button.add-experience {
+    border-radius: 10px;
+    font-size: 1rem;
+    color: #f1f1f1;
+    font-weight: 600;
+    background-color: #111 !important;
+    display: block;
+    margin: 0px auto !important;
+    transition: 0.3s ease;
+}
+
+button.add-experience:hover {
+    border-radius: 10px;
+    font-size: 1rem;
+    color: #f1f1f1;
+    font-weight: 600;
+    background-color: rgba(17, 17, 17, 0.846) !important;
+}
+
+.experience-badge-input .small {
+    font-weight: 600;
+}
+
+.experience-badge-input input[type="date"] {
+    margin: 10px;
+}
+
+.experience-badge-input textarea {
+    width: 100%;
+    background-color: transparent;
+    text-align: center;
+}
+
+
+/*  */
+
+.custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+.custom-file-input::before {
+    content: 'Select Image';
+    color: black;
+    display: inline-block;
+    background: #f1f1f1;
+    border: 1px solid #999;
+    border-radius: 3px;
+    padding: 5px 8px;
+    outline: none;
+    cursor: pointer;
+    text-shadow: 1px 1px #fff;
+    font-weight: 700;
+    font-size: 10pt;
+}
+
+.profile-badges>div,
+.profile-badges {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.profile-badges>div div.profile-badge,
+div.profile-badge {
+    margin: 20px !important;
+}
+
+
+/* media queries */
+
+@media(max-width:1010px) {
+    div.register-container .profile,
+    .profile {
+        padding: 150px 80px 80px 80px;
+    }
+    div.register-container .profile .profile-card {
+        height: auto;
+        width: 90%;
+    }
+}
+
+@media(max-width:780px) {
+    .profile-badge span.key {
+        font-size: 1.2rem;
+    }
+    input[type="text"].ctc-input {
+        font-size: 1rem;
+    }
+}
+
+@media(max-width:768px) {
+    div.register-container .profile,
+    div.profile {
+        padding: 150px 10px 10px 10px !important;
+    }
+    div.register-container .profile .profile-card {
+        height: auto;
+        width: 90%;
+    }
+}
+
+@media(max-width:600px) {
+    div.register-container .profile,
+    div.profile {
+        padding: 150px 1px 1px 1px !important;
+    }
+    div.profile-card {
+        width: 95% !important;
+    }
+    div.register-container .profile .profile-card {
+        height: auto;
+        width: 90%;
+    }
+}
