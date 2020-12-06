@@ -1,13 +1,14 @@
+/* eslint-disable */
+
 import React, { useEffect } from "react";
 import "./css/Navbar.css";
+import logo from "../../resources/JP-logo.PNG";
 import $ from "jquery";
 
 const Navbar = () => {
   useEffect(() => {
     const elment = $(".hamburger")[0];
-    console.log(elment);
     const elment1 = document.querySelector(".nav-list");
-
     elment.addEventListener("click", () => {
       elment.classList.toggle("active");
       elment1.classList.toggle("active");
@@ -15,43 +16,37 @@ const Navbar = () => {
   });
   return (
     <header className="container">
-      <div class="container">
+      <div className="container">
         <nav>
-          <a class="navbar-brand" href="#">
-            {" "}
-            <i class="icon ion-md-planet"> </i>
+          <a className="navbar-brand" href="#">
+            <img src={logo} alt="" />
           </a>
-          <ul class="nav-list">
-            <li class="nav-item">
-              <a class="nav-link" href="">
+          <ul className="nav-list">
+            <li className="nav-item">
+              <a className="nav-link" href="">
                 home
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="">
+            <li className="nav-item">
+              <a className="nav-link" href="">
                 Admin
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="">
+            <li className="nav-item">
+              <a className="nav-link" href="">
                 Login
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="">
-                Signup
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="">
-                Register
+            <li className="nav-item">
+              <a className="nav-link" href="/">
+                Logout
               </a>
             </li>
           </ul>
-          <div class="hamburger">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
+          <div className="hamburger">
+            <div className="line"></div>
+            <div className="line"></div>
+            <div className="line"></div>
           </div>
         </nav>
       </div>

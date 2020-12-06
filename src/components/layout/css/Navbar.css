@@ -19,11 +19,15 @@ nav {
 }
 
 .navbar-brand {
-    background-color: #0433BF;
     width: 3.5rem;
     height: 3.5rem;
     display: flex;
     border-radius: 50%;
+}
+
+.navbar-brand img {
+    width: 50px;
+    height: 50px;
 }
 
 .navbar-brand i {

@@ -1,8 +1,12 @@
+/* eslint-disable */
+
 import React, { useState } from "react";
 import "./css/Register.css";
+import $ from "jquery";
 import ExperienceForm from "./ExperienceForm";
+import submitGif from "../resources/submitGIF.gif";
 
-const Register = () => {
+const Register = (props) => {
   const [imagePreview, setimagePreview] = useState("");
   const [experiences, setexperiences] = useState([]);
   const [pdf, setpdf] = useState("");
@@ -49,6 +53,12 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    $("div.register-container>img").css("display", "block");
+    setTimeout(() => {
+      $("div.register-container>img").css("display", "none");
+      props.history.push("/profile");
+    }, 4500);
+
     console.log({
       name,
       imagePreview,
@@ -62,6 +72,7 @@ const Register = () => {
 
   return (
     <div className="register-container">
+      <img src={submitGif} alt="" />
       <div className="profile">
         <div className="profile-card">
           <form className="register-form">
