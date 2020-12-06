@@ -1,6 +1,11 @@
 import React from 'react'
 
-const AdminDashboard = () => {
+const AdminDashboard = (props) => {
+
+    const handleClick = (e) => {
+        props.history.push('/profile')
+    } 
+
     return (
         <div className="fluid-container admin">
             <h1 className="text-center p-5 text-light "><span className="heading">Admin Dashboard</span> </h1>
@@ -17,19 +22,19 @@ const AdminDashboard = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr onClick={handleClick}>
                         <th scope="row">1</th>
                         <td colspan='4' className="text-center">Front end development</td>
                         <td className="text-center" >3 November 2020</td>
                         <td className="text-center"><img src="https://www.svgrepo.com/show/79556/delete.svg" style={{ width: "30px", height: "30px" }}/></td>
                     </tr>
-                    <tr>
+                    <tr onClick={handleClick}>
                         <th scope="row">2</th>
                         <td colspan='4' className="text-center">Back end development</td>
                         <td className="text-center" >4 November 2020</td>
                         <td className="text-center"><img src="https://www.svgrepo.com/show/79556/delete.svg" style={{ width: "30px", height: "30px" }}/></td>
                     </tr>
-                    <tr>
+                    <tr onClick={handleClick}>
                         <th scope="row">3</th>
                         <td colspan="4" className="text-center" >Full stack development</td>
                         <td className="text-center" >16 November 2020</td>
