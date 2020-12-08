@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import $ from "jquery";
-import { login } from "../actions";
+import { login, signUp } from "../actions";
 
-const SignIn = ({ users, login, loggedIn, role }) => {
+const SignIn = ({ users, login, loggedIn, role, signUp }) => {
   const [form, setForm] = useState({});
 
   useEffect(() => {
@@ -34,9 +34,8 @@ const SignIn = ({ users, login, loggedIn, role }) => {
       }
       return null;
     });
+    setForm({});
   };
-
-  console.log(loggedIn);
 
   if (loggedIn) {
     return role === 0 ? <Redirect to="/register" /> : <Redirect to="/admin" />;
@@ -58,7 +57,7 @@ const SignIn = ({ users, login, loggedIn, role }) => {
 
         <div ng-app ng-init="checked = false">
           <form className="form-signin" name="form">
-            <label for="email">Email</label>
+            <label htmlFor="email">Email</label>
             <input
               className="form-styling"
               type="text"
@@ -66,7 +65,7 @@ const SignIn = ({ users, login, loggedIn, role }) => {
               placeholder=""
               onChange={handleForm}
             />
-            <label for="password">Password</label>
+            <label htmlFor="password">Password</label>
             <input
               className="form-styling"
               type="text"
@@ -75,7 +74,7 @@ const SignIn = ({ users, login, loggedIn, role }) => {
               onChange={handleForm}
             />
             <input type="checkbox" id="checkbox" />
-            <label for="checkbox">
+            <label htmlFor="checkbox">
               <span className="ui"></span>Keep me signed in
             </label>
             <div className="btn-animate">
@@ -86,35 +85,45 @@ const SignIn = ({ users, login, loggedIn, role }) => {
           </form>
 
           <form className="form-signup" name="form">
-            <label for="fullname">Full name</label>
+            <label htmlFor="fullname">Full name</label>
             <input
+              onChange={handleForm}
               className="form-styling"
               type="text"
               name="fullname"
               placeholder=""
             />
-            <label for="email">Email</label>
+            <label htmlFor="email">Email</label>
             <input
+              onChange={handleForm}
               className="form-styling"
               type="text"
               name="email"
               placeholder=""
             />
-            <label for="password">Password</label>
+            <label htmlFor="password">Password</label>
             <input
+              onChange={handleForm}
               className="form-styling"
               type="text"
               name="password"
               placeholder=""
             />
-            <label for="confirmpassword">Confirm password</label>
+            <label htmlFor="confirmpassword">Confirm password</label>
             <input
+              onChange={handleForm}
               className="form-styling"
               type="text"
               name="confirmpassword"
               placeholder=""
             />
-            <a ng-click="checked = !checked" className="btn-signup">
+            <a
+              onClick={() => {
+                signUp(form);
+              }}
+              ng-click="checked = !checked"
+              className="btn-signup"
+            >
               Sign Up
             </a>
           </form>
@@ -133,4 +142,4 @@ const mapStateToProps = (state) => ({
   role: state.role,
 });
 
-export default connect(mapStateToProps, { login })(SignIn);
+export default connect(mapStateToProps, { login, signUp })(SignIn);

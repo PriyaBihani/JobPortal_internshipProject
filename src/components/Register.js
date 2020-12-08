@@ -1,12 +1,17 @@
 /* eslint-disable */
 
 import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 import "./css/Register.css";
 import $ from "jquery";
 import ExperienceForm from "./ExperienceForm";
 import submitGif from "../resources/submitGIF.gif";
 
+import { addProfile } from "../actions";
+
 const Register = (props) => {
+  const { user, addProfile } = props;
   const [imagePreview, setimagePreview] = useState("");
   const [experiences, setexperiences] = useState([]);
   const [pdf, setpdf] = useState("");
@@ -30,7 +35,6 @@ const Register = (props) => {
 
       reader.readAsDataURL(file);
     } else {
-      console.log("Enter an image URL");
     }
   };
 
@@ -46,29 +50,31 @@ const Register = (props) => {
 
         reader.readAsDataURL(file);
       } else {
-        console.log("Enter an image URL");
       }
     }
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    $("div.register-container>img").css("display", "block");
-    setTimeout(() => {
-      $("div.register-container>img").css("display", "none");
-      props.history.push("/profile");
-    }, 4500);
-
-    console.log({
+    addProfile(user, {
       name,
-      imagePreview,
+      profileImage: imagePreview.imagePreviewUrl,
       jobProfile,
       ctc,
       expYears,
       experiences,
       pdf,
     });
+    e.preventDefault();
+    $("div.register-container>img").css("display", "block");
+    setTimeout(() => {
+      $("div.register-container>img").css("display", "none");
+      <Redirect to="/profile" />;
+    }, 4500);
   };
+
+  if (!user) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <div className="register-container">
@@ -191,4 +197,8 @@ const Register = (props) => {
   );
 };
 
-export default Register;
+const mapStateToProps = (state) => ({
+  user: state.user,
+});
+
+export default connect(mapStateToProps, { addProfile })(Register);

@@ -1,25 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
+import { connect } from "react-redux";
+import ViewPdf from "./ViewPdf";
 
 const AdminDashboard = (props) => {
-  const handleClick = (e) => {
-    props.history.push("/profile");
+  const { users, profiles } = props;
+  const [pdfData, setpdfData] = useState("");
+
+  const handleClick = (user) => {
+    const userId = user.id;
+    const hasProfile =
+      profiles &&
+      profiles.some((profile) => {
+        return profile.id === userId;
+      });
+
+    if (!hasProfile) {
+      setpdfData("");
+
+      window.alert("no profile for this user");
+    } else {
+      profiles &&
+        profiles.map((profile) => {
+          if (profile.id == userId) {
+            setpdfData(profile.pdf);
+          }
+        });
+    }
   };
+  var count = 0;
 
   return (
-    <div className="fluid-container admin">
+    <div
+      style={{ backgroundColor: "#111", minHeight: "100%" }}
+      className="fluid-container admin"
+    >
       <h1 className="text-center p-5 text-light ">
         <span className="heading">Admin Dashboard</span>{" "}
       </h1>
+
       <div className="appl-lists">
         <table className="table table-hover">
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col" colspan="4" className="text-center">
-                Field
-              </th>
+
               <th scope="col" className="text-center">
-                Date Applied
+                Email
               </th>
               <th scope="col" className="text-center">
                 <button className="btn">Delete All</button>
@@ -27,53 +53,33 @@ const AdminDashboard = (props) => {
             </tr>
           </thead>
           <tbody>
-            <tr onClick={handleClick}>
-              <th scope="row">1</th>
-              <td colspan="4" className="text-center">
-                Front end development
-              </td>
-              <td className="text-center">3 November 2020</td>
-              <td className="text-center">
-                <img
-                  alt="delete"
-                  src="https://www.svgrepo.com/show/79556/delete.svg"
-                  style={{ width: "30px", height: "30px" }}
-                />
-              </td>
-            </tr>
-            <tr onClick={handleClick}>
-              <th scope="row">2</th>
-              <td colspan="4" className="text-center">
-                Back end development
-              </td>
-              <td className="text-center">4 November 2020</td>
-              <td className="text-center">
-                <img
-                  alt="delete"
-                  src="https://www.svgrepo.com/show/79556/delete.svg"
-                  style={{ width: "30px", height: "30px" }}
-                />
-              </td>
-            </tr>
-            <tr onClick={handleClick}>
-              <th scope="row">3</th>
-              <td colspan="4" className="text-center">
-                Full stack development
-              </td>
-              <td className="text-center">16 November 2020</td>
-              <td className="text-center">
-                <img
-                  alt="dele"
-                  src="https://www.svgrepo.com/show/79556/delete.svg"
-                  style={{ width: "30px", height: "30px" }}
-                />
-              </td>
-            </tr>
+            {users &&
+              users.map((user) => {
+                count++;
+                return (
+                  <tr
+                    onClick={() => {
+                      handleClick(user);
+                    }}
+                  >
+                    <th scope="row">{count}</th>
+                    <td className="text-center">{user.email}</td>
+                    <td className="text-center"></td>
+                  </tr>
+                );
+              })}
           </tbody>
         </table>
+        <div class="">
+          <ViewPdf data={pdfData} />
+        </div>
       </div>
     </div>
   );
 };
 
-export default AdminDashboard;
+const mapStateToProps = (state) => ({
+  users: state.users,
+  profiles: state.profiles,
+});
+export default connect(mapStateToProps)(AdminDashboard);
